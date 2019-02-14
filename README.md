@@ -46,4 +46,4 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
 ```
-Now you are connected to mysql from you docker container.
+Now you are connected to mysql in your docker container from host.
