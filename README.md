@@ -10,23 +10,25 @@ Create Docker from linux-generic MySQL
 
 
 # Building and running
-Set executable rights for scripts:
+Step-by-step.
+
+1. Set executable rights for scripts:
 ```
 chmod +x build.sh run.sh privilege_fix.sh connect.sh
 ```
-Build docker image `ubuntusql` from mysql archive (you must put it in `distro` folder):
+2. Build docker image `ubuntusql` from mysql archive (you must put it in `distro` folder):
 ```
 ./build.sh
 ```
-Initialize and run container `ubuntusql_container` from `ubuntusql` image (you can close that log-console, container will still go on):
+3. Initialize and run container `ubuntusql_container` from `ubuntusql` image (you can close that log-console, container will still go on):
 ```
 ./run.sh
 ```
-Fix network privileges (to connect into docker mysql from host system, more: [stackoverflow answer](https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server))
+4. Fix network privileges (to connect into docker mysql from host system, more: [stackoverflow answer](https://stackoverflow.com/questions/1559955/host-xxx-xx-xxx-xxx-is-not-allowed-to-connect-to-this-mysql-server))
 ```
 ./privilege_fix.sh
 ```
-Connect from your host system into docker sql:
+5. Connect from your host system into docker sql:
 ```
 ./connect.sh
 ```
