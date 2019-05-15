@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 
 import pymysql
+from random import randint, sample
 
 firewall_logs = [
-    ('1900-01-01', 'error', '8.8.8.8', 80, '8.8.8.8', 80)
+    (
+        f"{randint(2010, 2018)}-{str(randint(1, 28)).zfill(2)}-{str(randint(1, 28)).zfill(2)}", 
+        "alert", 
+        f"{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}",
+        randint(0, 8080),
+        f"{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}",
+        randint(0, 8080)
+    ) for _ in range(100)
 ]
 
 if __name__=="__main__":
