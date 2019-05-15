@@ -16,7 +16,7 @@ RUN chown mysql:mysql mysql-files
 RUN chmod 750 mysql-files
 
 RUN ./bin/mysqld --no-defaults --initialize-insecure --user=mysql --basedir=. --skip-name-resolve --skip-host-cache --bind-address=0.0.0.0
-RUN ./bin/mysql_ssl_rsa_setup
+RUN ./bin/mysql_ssl_rsa_setup --uid=mysql
 USER mysql
 
 EXPOSE 3306
