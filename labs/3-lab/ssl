@@ -1,0 +1,20 @@
+От рута:
+
+./mysql_ssl_rsa_setup --uid=mysql
+cd /etc
+touch my.cnf
+
+apt-get install nano
+nano my.cnf
+
+[client]
+ssl-ca=/etc/data/ca-cert.pem
+ssl-cert=/etc/data/server-cert.pem
+ssl-key=/etc/data/server-key.pem
+
+[mysqld]
+ssl-ca=/etc/data/ca-cert.pem
+ssl-cert=/etc/data/server-cert.pem
+ssl-key=/etc/data/server-key.pem
+
+mv data/ /etc/
