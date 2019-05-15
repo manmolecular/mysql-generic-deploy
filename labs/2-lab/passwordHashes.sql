@@ -1,3 +1,11 @@
+/*
+2) passwordsHashes
+Каждая таблица должна иметь 2 текстовых столбца достаточной длины. 
+1 столбец для хранения email, 2 столбец для хранения хеша пароля в текстовом виде
+table(email varchar(256), passwordHash(128))
+Список таблиц: yandex, google, mail_ru
+*/
+
 CREATE DATABASE passwordsHashes CHARACTER SET utf8;
 
 USE passwordsHashes;
