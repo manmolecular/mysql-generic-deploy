@@ -2,10 +2,11 @@
 
 import pymysql
 from random import randint, sample
+from datetime import datetime
 
 firewall_logs = [
     (
-        f"{randint(2010, 2018)}-{str(randint(1, 28)).zfill(2)}-{str(randint(1, 28)).zfill(2)}", 
+        f"{datetime.today().strftime('%Y-%m-%d')}", 
         "alert", 
         f"{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}",
         randint(0, 8080),
