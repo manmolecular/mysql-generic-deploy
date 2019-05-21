@@ -13,8 +13,8 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'Admin'@'%' IDENTIFIED BY '1234';
 хост: localhost
 с правом передавать привелегии
 */
-CREATE USER 'firewallAdmin'@'localhost' IDENTIFIED WITH mysql_native_password AS '1234';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON `firewallLogs`.* TO 'firewallAdmin'@'localhost' IDENTIFIED BY '1234' WITH GRANT OPTION;
+CREATE USER 'firewallAdmin'@'%' IDENTIFIED WITH mysql_native_password AS '1234';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON `firewallLogs`.* TO 'firewallAdmin'@'%' IDENTIFIED BY '1234' WITH GRANT OPTION;
 
 /*
 3) Пользователя для загрузки данных в таблицы схемы passwordsHashes
