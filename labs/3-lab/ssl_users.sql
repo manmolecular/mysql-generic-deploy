@@ -26,6 +26,9 @@ openssl x509 -in client-cert.pem -issuer
  */
 
 /* 1) admin@'%' - требуется подтверждение владельца и издателя сертификата */
+/* CONNECT:
+mysql -P 3306 --protocol=tcp -u Admin --ssl-ca=./db_data/ca.pem --ssl-cert=./db_data/client-cert.pem --ssl-key=./db_data/client-key.pem -p
+*/
 ALTER USER 'Admin'@'%' REQUIRE SSL;
 ALTER USER 'Admin'@'%' REQUIRE ISSUER '/CN=MySQL_Server_5.7.25_Auto_Generated_CA_Certificate';
 ALTER USER 'Admin'@'%' REQUIRE SUBJECT '/CN=MySQL_Server_5.7.25_Auto_Generated_Client_Certificate';
