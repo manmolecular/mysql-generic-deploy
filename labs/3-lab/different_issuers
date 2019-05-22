@@ -1,0 +1,27 @@
+1. Start docker
+2. Fix privielege for connects
+3. Add users with privieleges
+
+CREATE USER 'pwdLoader'@'%' IDENTIFIED WITH mysql_native_password AS '1234';
+GRANT INSERT, UPDATE ON `passwordsHashes`.* TO 'pwdLoader'@'%' IDENTIFIED BY '1234';
+
+ALTER USER 'pwdLoader'@'%' REQUIRE SSL;
+ALTER USER 'pwdLoader'@'%' REQUIRE ISSUER '/CN=client';
+
+4. Create new client certs on server
+
+$ openssl req -x509 -newkey rsa:1024 \
+         -keyout client-key-enc.pem -out client-cert.pem \
+         -subj '/CN=client' -passout pass:qwerty
+
+$ openssl rsa -in client-key-enc.pem -out client-key.pem
+(pass : qwerty)
+
+5. Update ca.pem
+
+$ cat server-cert.pem client-cert.pem > ca.pem
+
+6. Copy certs to local dir
+7. Connect with new certs
+
+mysql -P 3306 --protocol=tcp -u pwdLoader --ssl-cert=./db_data/data/client-cert.pem --ssl-key=./db_data/data/client-key.pem -p

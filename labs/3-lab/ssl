@@ -8,11 +8,12 @@ apt-get install nano
 nano my.cnf
 
 [client]
-ssl-ca=/etc/data/ca-cert.pem
-ssl-cert=/etc/data/server-cert.pem
-ssl-key=/etc/data/server-key.pem
+ssl
+ssl-cert=/etc/data/client-cert.pem
+ssl-key=/etc/data/client-key.pem
 
 [mysqld]
+ssl
 ssl-ca=/etc/data/ca-cert.pem
 ssl-cert=/etc/data/server-cert.pem
 ssl-key=/etc/data/server-key.pem
